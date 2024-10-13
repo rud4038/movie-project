@@ -34,4 +34,4 @@ bower_components
 
 # End of https://www.toptal.com/developers/gitignore/api/java,react
 .env
-apriapplication-API-KEY.properties
+resources/apriapplication-API-KEY.properties

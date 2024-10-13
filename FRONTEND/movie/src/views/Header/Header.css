@@ -1,0 +1,151 @@
+.Header {
+    position: fixed;
+    top: 0px;
+    z-index: 51;
+    width: 100%;
+    text-align: center;
+    color: black;
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.08);
+    background-color: #fff;
+}
+
+.detail-h{
+    box-shadow: none;
+    color: white;
+    background-color: inherit;
+}
+
+
+.Header-box {
+    height: 62px;
+    width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rogo-btn{
+    text-decoration: none;
+    color: inherit;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.Header-reft {
+    height: 62px;
+    display: flex;
+    align-items: center;
+}
+
+.search-box {
+    background-color: #f5f5f5;
+    padding: 7px 10px 8px 0;
+    width: 300px;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.detail-search-box {
+    background-color: rgb(0, 0, 0, 0.2);
+    border: 1px solid #7e7e7e;
+}
+
+.search-icon {
+    width: 36px;
+    color: #b9babe;
+    height: 100%;
+    border: none;
+    cursor: pointer;
+    background-color: inherit;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.search-input {
+    border: 0;
+    background-color: transparent;
+    width: 254px;
+    height: 21px;
+    font-size: 14px;
+    line-height: 20px;
+    border: none;
+    outline: none;
+    color: inherit;
+}
+
+
+.login-btn {
+    margin-left: 10px;
+    padding: 0 12px;
+    width: 63px;
+    height: 32px;
+    background-color: transparent;
+    border: none;
+    font-size: 13px;
+    color: #747474;
+    cursor: pointer;
+}
+
+.login-btn.detail {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.login-btn:hover {
+    color: black;
+}
+
+.login-btn.detail:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.member-btn {
+    margin-left: 10px;
+    padding: 0 11px;
+    width: 80px;
+    height: 32px;
+    font-size: 13px;
+    background-color: transparent;
+    align-items: center;
+    border: solid 1px rgb(0, 0, 0,0.15);
+    border-radius: 4px;
+    cursor: pointer;
+    color: inherit;
+}
+
+.member-btn.detail {
+    border: solid 1px rgb(255, 255, 255,0.15);
+}
+
+.member-btn:hover{
+    background-color: #0000001A;
+}
+
+.member-btn.detail:hover {
+    background-color: #FFFFFF1A;
+}
+
+.myinfo-btn {
+    width: 30px;
+    height: 32px;
+    font-size: 13px;
+    background-color: transparent;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    color: #747474;
+}
+
+.logout-btn {
+    margin-left: 10px;
+    width: 80px;
+    height: 32px;
+    background-color: transparent;
+    border: none;
+    font-size: 13px;
+    color: #747474;
+    cursor: pointer;
+}
+
+

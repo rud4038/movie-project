@@ -1,0 +1,140 @@
+
+.Main {
+    margin-top: 86px;
+}
+
+.contents-search-box {
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid #4c4c4c;
+    font-size: 14px;
+    color: #545454;
+    line-height: 130%;
+    border-top: 3px solid black;
+}
+
+.contents-search-box ul {
+    width: 970px;
+    padding: 0;
+    margin: 0 auto;
+    height: 60px;
+    list-style-type: none;
+    border-right: 1px solid #dfdedf;
+}
+
+.contents-search-box li {
+    width: 33.33%;
+    float: left;
+    list-style-type: none;
+    display: list-item;
+    unicode-bidi: isolate;
+}
+
+.contents-search-btn {
+    height: 60px;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+    background-color: #fff;
+    border: none;
+    border-left: 1px solid #dfdedf ;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.contents-search-active {
+    color: #fff;
+    background: #f02459;
+}
+
+.contents-search-btn:hover {
+    color: #fff;
+    background: #f02459;
+}
+
+.contents-genre-list {
+    padding-top: 1rem;
+    width: 970px;
+    margin: 0 auto;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.contents-genre-box {
+    width: 25%;
+    height: 40px;
+    border: 1px solid #dfdedf;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.contents-genre-box:hover {
+    color: #fff;
+    background: #f02459;
+}
+
+.genre-box-active {
+    color: #fff;
+    background: #f02459;
+}
+
+.contents-list {
+    padding-top: 40px;
+    width: 970px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.contents-box {
+    width: 224px;
+    margin-bottom: 24px;
+    margin-left: 18px;
+    cursor: pointer;
+}
+
+.contents-img-box {
+    width: 100%;
+    height: 328px;
+}
+
+.contents-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contents-info-box {
+    width: 100%;
+    margin: 5px 10px 0 0;
+    text-align: left;
+}
+
+.contents-title {
+    margin-bottom: 3px;
+    color: #292a32;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 500;
+}
+
+.contents-subcon {
+    width: 100%;
+    color: #292a32;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0;
+    
+}
+.pagination-box {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}

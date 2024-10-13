@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.projects.dao.MyBatisMapper">   
+	
+	<select id="existsByKakaoId" parameterType="String" resultType="com.example.demo.projects.dto.MemberKakaoDto">
+		SELECT
+			*
+		FROM
+			member_kakao
+		WHERE
+			kakao_Id = #{kakaoId}
+	</select>
+	
+	<insert id="KakaoSingUp" parameterType="com.example.demo.projects.dto.MemberKakaoDto"  keyProperty="memberId" keyColumn="member_id">
+		Insert into member_kakao
+			(member_id,kakao_id)
+		Values
+			(#{memberId},#{kakaoId})
+	</insert>
+	
+	<insert id="SingUp" parameterType="com.example.demo.projects.dto.MemberDto" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+		Insert into member
+			(name,provider)
+		Values
+			(#{name},#{provider})
+	</insert>
+	
+	<select id="findMemberInfo" parameterType="Int" resultType="com.example.demo.projects.dto.MemberDto">
+		Select
+			*
+		From
+			member
+		Where
+			id = #{memberId}
+	</select>
+	
+	<select id="existsByEmail" parameterType="String" resultType="com.example.demo.projects.dto.CommonMemberDto">
+		Select
+			*
+		From
+			member_common
+		Where
+			email = #{email}
+	</select>
+	
+	<insert id="CommonSignUp" parameterType="com.example.demo.projects.dto.CommonMemberDto">
+		Insert into member_common
+			(member_id,email,password)
+		Values
+			(#{memberId},#{email},#{password})
+	</insert>
+	
+	<insert id="MovieInfoSave" parameterType="com.example.demo.projects.dto.MovieInfoDto">
+		Insert into movie_info
+			(movie_cd,movie_name,nation,open_date,show_time,watch_grade,plot,poster_url,backdrop_path)
+		Values
+			(#{movieCd},#{movieName},#{nation},#{openDate},#{showTime},#{watchGrade},#{plot},#{posterUrl},#{backdropPath})		
+	</insert>
+	
+	<select id="findMovieCd" parameterType="String" resultType="com.example.demo.projects.dto.MovieCdDto">
+		Select
+			movie_cd
+		From
+			movie_info
+		Where
+			movie_cd = #{movieCd}		
+	</select>
+	
+	<select id="MovieSearchList" parameterType="String" resultType="java.util.HashMap">
+		SELECT
+			mi.movie_cd,
+		    mi.movie_name,
+		    mi.nation,
+		    mi.open_date,
+		    mi.show_time,
+		    mi.watch_grade,
+		    mi.plot,
+		    mi.poster_url,
+		    GROUP_CONCAT(g.genre_name) as genres,
+		    IFNULL(ROUND(AVG(cs.score),1),0) as score,
+		    mi.backdrop_path
+		FROM 
+			movie_genre mg
+		LEFT JOIN movie_info mi on
+			mg.movie_cd = mi.movie_cd
+		LEFT JOIN genre g on
+			mg.genre_id = g.id
+		LEFT JOIN coment_score cs on
+			mg.movie_cd = cs.movie_cd
+		WHERE
+			mi.movie_name Like CONCAT('%', #{movieName}, '%')
+		GROUP BY
+			mg.movie_cd
+		ORDER BY open_date DESC
+	</select>
+	
+	<select id="MovieListLoad" resultType="java.util.HashMap">
+		SELECT
+			mi.movie_cd,
+		    mi.movie_name,
+		    mi.nation,
+		    mi.open_date,
+		    mi.show_time,
+		    mi.watch_grade,
+		    mi.plot,
+		    mi.poster_url,
+		    GROUP_CONCAT(g.genre_name) as genres,
+		    IFNULL(ROUND(AVG(cs.score),1),0) as score,
+		    mi.backdrop_path
+		FROM 
+			movie_genre mg
+		LEFT JOIN movie_info mi on
+			mg.movie_cd = mi.movie_cd
+		LEFT JOIN genre g on
+			mg.genre_id = g.id
+		LEFT JOIN coment_score cs on
+			mg.movie_cd = cs.movie_cd
+		GROUP BY
+			mg.movie_cd
+		ORDER BY open_date DESC
+	</select>
+	
+	<select id="MovieListByGenre" parameterType="String" resultType="java.util.HashMap">
+		SELECT
+			mi.movie_cd,
+		    mi.movie_name,
+		    mi.nation,
+		    mi.open_date,
+		    mi.show_time,
+		    mi.watch_grade,
+		    mi.plot,
+		    mi.poster_url,
+		    GROUP_CONCAT(g.genre_name) as genres,
+		    IFNULL(ROUND(AVG(cs.score),1),0) as score,
+		    mi.backdrop_path
+		FROM 
+			movie_genre mg
+		LEFT JOIN movie_info mi on
+			mg.movie_cd = mi.movie_cd
+		LEFT JOIN genre g on
+			mg.genre_id = g.id
+		LEFT JOIN coment_score cs on
+			mg.movie_cd = cs.movie_cd
+		GROUP BY
+			mg.movie_cd
+		HAVING
+			genres LIKE CONCAT('%', #{genre}, '%')
+		ORDER BY open_date DESC
+	</select>
+	
+	<select id="movieListByScore" resultType="java.util.HashMap">
+		SELECT
+			mi.movie_cd,
+		    mi.movie_name,
+		    mi.nation,
+		    mi.open_date,
+		    mi.show_time,
+		    mi.watch_grade,
+		    mi.plot,
+		    mi.poster_url,
+		    GROUP_CONCAT(g.genre_name) as genres,
+		    IFNULL(ROUND(AVG(cs.score),1),0) as score,
+		    mi.backdrop_path
+		FROM 
+			movie_genre mg
+		LEFT JOIN movie_info mi on
+			mg.movie_cd = mi.movie_cd
+		LEFT JOIN genre g on
+			mg.genre_id = g.id
+		LEFT JOIN coment_score cs on
+			mg.movie_cd = cs.movie_cd
+		GROUP BY
+			mg.movie_cd
+		ORDER BY score DESC, open_date DESC
+	</select>
+	
+	<insert id="GenreSave" parameterType="com.example.demo.projects.dto.GenreDto" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+		Insert into genre
+			(genre_name)
+		Values 
+			(#{genreName})
+	</insert>
+	
+	<select id="findGenreNm" parameterType="String" resultType="com.example.demo.projects.dto.GenreDto">
+		Select
+			*
+		From
+			genre
+		Where
+			genre_name = #{genreNm}
+	</select>
+	
+	<insert id="MovieGenreSave" parameterType="com.example.demo.projects.dto.MovieGenreSaveDto">
+		Insert into movie_genre
+			(movie_cd,genre_id)
+		Values
+			(#{movieCd},#{genreId})
+	</insert>
+	
+	<select id="MovieGenreList" resultType="java.util.HashMap">
+		SELECT
+			genre_name
+		FROM
+			genre
+	</select>
+	
+	<select id="getLastApiCall" resultType="java.time.LocalDateTime">
+        SELECT 
+        	last_api_call 
+        FROM 
+        	boxofficeapi_call_history
+        WHERE id = 1
+    </select>
+
+    <update id="updateLastApiCall" parameterType="java.time.LocalDateTime">
+        UPDATE 
+        	boxofficeapi_call_history
+        SET 
+        	last_api_call = #{lastApiCall}
+        WHERE 
+        	id = 1
+    </update>
+
+    <insert id="insertApiCallLog" parameterType="java.time.LocalDateTime">
+        INSERT INTO boxofficeapi_call_history
+        	(id, last_api_call)
+        VALUES 
+        	(1, #{lastApiCall})
+    </insert>
+    
+    <insert id="ComentSave" parameterType="com.example.demo.projects.dto.ComentDto" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+		INSERT INTO coment_score
+			(movie_cd,member_id,member_name,coment,score)
+		VALUES
+			(#{movieCd},#{memberId},#{memberName},#{coment},#{score})
+	</insert>
+	
+	<insert id="RecomendationSave" parameterType="com.example.demo.projects.dto.RecomendationDto">
+		INSERT INTO recomendation
+			(member_id,coment_id)
+		VALUES
+			(#{memberId},#{comentId})
+	</insert>
+	
+	<select id="findeRecomendation" parameterType="com.example.demo.projects.dto.RecomendationDto" resultType="com.example.demo.projects.dto.RecomendationDto">
+		SELECT
+			*
+		FROM
+			recomendation
+		WHERE
+			member_id=#{memberId} AND coment_id=#{comentId}
+	</select>
+	
+	<select id="getComentList" parameterType="String" resultType="java.util.HashMap">
+		SELECT 
+			cs.id,
+		    cs.movie_cd,
+		    cs.member_id,
+		    cs.member_name,
+		    cs.coment,
+		    cs.score,
+		    count(r.coment_id) as recomendation_count
+		FROM 
+			coment_score cs
+		LEFT JOIN recomendation r on
+			cs.id = r.coment_id
+		WHERE
+			cs.movie_cd = #{movieCd}
+		GROUP BY
+			cs.id
+		ORDER BY
+			cs.id
+	</select>
+	
+	<select id="getMyComent" parameterType="com.example.demo.projects.dto.ComentSearchDto" resultType="com.example.demo.projects.dto.ComentResponseDto">
+		SELECT 
+			cs.id,
+		    cs.movie_cd,
+		    cs.member_id,
+		    cs.member_name,
+		    cs.coment,
+		    cs.score,
+		    count(r.coment_id) as recomendation_count
+		FROM 
+			coment_score cs
+		LEFT JOIN recomendation r on
+			cs.id = r.coment_id
+		WHERE
+			cs.movie_cd = #{movieCd} AND cs.member_id = #{memberId}
+		GROUP BY
+			cs.id
+		ORDER BY
+			cs.id
+	</select>
+	
+	<delete id="DeleteRecomendation" parameterType="com.example.demo.projects.dto.RecomendationDto">
+		DELETE FROM recomendation WHERE member_id = #{memberId} AND coment_id = #{comentId}
+	</delete>
+	
+	<select id="RecomendationList" parameterType="Integer" resultType="java.util.HashMap">
+		SELECT 
+			GROUP_CONCAT(coment_id) as comentIdList 
+		FROM 
+			recomendation 
+		WHERE 
+			member_id = #{memberId}
+	</select>
+	
+	<select id="getMovieInfo" parameterType="String" resultType="com.example.demo.projects.dto.GetMovieInfoDto">
+		SELECT
+			mi.movie_cd,
+		    mi.movie_name,
+		    mi.nation,
+		    mi.open_date,
+		    mi.show_time,
+		    mi.watch_grade,
+		    mi.plot,
+		    mi.poster_url,
+		    GROUP_CONCAT(DISTINCT g.genre_name) as genres,
+		    IFNULL(ROUND(AVG(cs.score),1),0) as score,
+		    mi.backdrop_path
+		FROM 
+			movie_genre mg
+		LEFT JOIN movie_info mi on
+			mg.movie_cd = mi.movie_cd
+		LEFT JOIN genre g on
+			mg.genre_id = g.id
+		LEFT JOIN coment_score cs on
+			mg.movie_cd = cs.movie_cd
+		WHERE
+			mg.movie_cd = #{movieCd}
+		GROUP BY
+			mg.movie_cd
+	</select>
+	
+	<update id="ComentScoreUpdate" parameterType="com.example.demo.projects.dto.ComentScoreUpdateDto">
+		UPDATE
+			coment_score
+		SET
+			score = #{score}
+		WHERE
+			id =  #{id}
+	</update>
+	
+	<update id="ComentUpdate" parameterType="com.example.demo.projects.dto.ComentDto">
+		UPDATE
+			coment_score
+		SET
+			coment = #{coment}
+		WHERE
+			id = #{id}
+	</update>
+	
+	<delete id="ComentDelete" parameterType="Integer">
+		DELETE FROM coment_score WHERE id = #{id}
+	</delete>
+	
+	<select id="ComentListLoad" parameterType="String" resultType="java.util.HashMap">
+		SELECT
+			*
+		FROM
+			coment_score
+		WHERE
+			movie_cd = #{movieCd}
+	</select>
+	
+	<select id="getComent" parameterType="Integer" resultType="com.example.demo.projects.dto.ComentResponseDto">
+		SELECT 
+			cs.id,
+		    cs.movie_cd,
+		    cs.member_id,
+		    cs.member_name,
+		    cs.coment,
+		    cs.score,
+		    count(r.coment_id) as recomendation_count
+		FROM 
+			coment_score cs
+		LEFT JOIN recomendation r on
+			cs.id = r.coment_id
+		WHERE
+			cs.id = #{id}
+		GROUP BY
+			cs.id
+		ORDER BY
+			cs.id
+	</select>
+	
+	<select id="getComentListByRecomendation" parameterType="String" resultType="java.util.HashMap">
+		SELECT 
+			cs.id,
+		    cs.movie_cd,
+		    cs.member_id,
+		    cs.member_name,
+		    cs.coment,
+		    cs.score,
+		    count(r.coment_id) as recomendation_count
+		FROM 
+			coment_score cs
+		LEFT JOIN recomendation r on
+			cs.id = r.coment_id
+		WHERE
+			cs.movie_cd = #{movieCd}
+		GROUP BY
+			cs.id
+		ORDER BY
+			recomendation_count DESC
+	</select>
+	
+	<select id="getComentListByScoreDesc" parameterType="String" resultType="java.util.HashMap">
+		SELECT 
+			cs.id,
+		    cs.movie_cd,
+		    cs.member_id,
+		    cs.member_name,
+		    cs.coment,
+		    cs.score,
+		    count(r.coment_id) as recomendation_count
+		FROM 
+			coment_score cs
+		LEFT JOIN recomendation r on
+			cs.id = r.coment_id
+		WHERE
+			cs.movie_cd = #{movieCd}
+		GROUP BY
+			cs.id
+		ORDER BY
+			cs.score DESC
+	</select>
+	
+	<select id="getComentListByScore" parameterType="String" resultType="java.util.HashMap">
+		SELECT 
+			cs.id,
+		    cs.movie_cd,
+		    cs.member_id,
+		    cs.member_name,
+		    cs.coment,
+		    cs.score,
+		    count(r.coment_id) as recomendation_count
+		FROM 
+			coment_score cs
+		LEFT JOIN recomendation r on
+			cs.id = r.coment_id
+		WHERE
+			cs.movie_cd = #{movieCd}
+		GROUP BY
+			cs.id
+		ORDER BY
+			cs.score
+	</select>
+	
+	<update id="memberNameUpdate" parameterType="com.example.demo.projects.dto.MemberDto">
+		UPDATE
+			member
+		SET
+			name = #{name}
+		WHERE
+			id = #{id}
+	</update>
+	
+	<update id="comentNameUpdate" parameterType="com.example.demo.projects.dto.MemberDto">
+		UPDATE
+			coment_score
+		SET
+			member_name = #{name}
+		WHERE
+			member_id = #{id}
+	</update>
+	
+	<select id="getEmail" parameterType="Integer" resultType="String">
+		SELECT
+			email
+		FROM
+			member_common
+		WHERE
+			member_id = #{id}
+	</select>
+	
+	<delete id="memberDelete" parameterType="Integer">
+		DELETE
+			m,mc
+		FROM	
+			member m
+		LEFT JOIN 
+			member_common mc
+			ON	mc.member_id = m.id
+		WHERE
+			m.id = #{id};
+	</delete>
+	
+	<delete id="kakaoDelete" parameterType="Integer">
+		DELETE
+			m,mk
+		FROM	
+			member m
+		LEFT JOIN 
+			member_kakao mk
+			ON	mk.member_id = m.id
+		WHERE
+			m.id = #{id};
+	</delete>
+	
+	<delete id="recomendationAllDelete" parameterType="Integer">
+		DELETE FROM
+			recomendation
+		WHERE
+			member_id = #{id};
+	</delete>
+	
+	<delete id="comentAllDelete" parameterType="Integer">
+		DELETE FROM
+			coment_score
+		WHERE
+			member_id = #{id};
+	</delete>
+	
+	
+	
+	
+</mapper>

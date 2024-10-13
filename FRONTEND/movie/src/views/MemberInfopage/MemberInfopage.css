@@ -1,0 +1,147 @@
+.MemberInfo-background-box {
+    padding-top: 62px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5;
+    height: 895px;
+    align-items: center;
+}
+
+.MemberInfo-con-box {
+    width: 1140px;
+    height: 700px;
+    margin-top: 40px;
+    border: 1px solid #e3e3e3;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+.MemberInfo-title {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+}
+
+.MemberInfo-update-box {
+    width: 500px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.MemberInfo-email-box {
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(220, 227, 233, .8);
+    text-align: left;
+}
+
+.MemberInfo-email-div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.MemberInfo-email-head{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.MemberInfo-email {
+    width: 100%;
+    color: #7f7f7f;
+}
+
+.MemberInfo-name-box {
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(220, 227, 233, .8);
+    text-align: left;
+}
+
+.MemberInfo-name-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.MemberInfo-name {
+    color: #7f7f7f;
+}
+
+.MemberInfo-name-btn-box {
+    width: 50px;
+    color: #7b8994;
+    background-color: rgba(212, 216, 229, .25);
+    border: solid 1px rgba(212, 216, 229, .5);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.MemberInfo-delete-box {
+    margin-top: 12px;
+    display: flex;
+    justify-content: end;
+}
+
+.MemberInfo-delete-btn {
+    padding: 0;
+    color: black;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+    border-bottom: 1px solid #7b8994;
+}
+
+.MemberInfo-name-update-box {
+    padding: 20px 0 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.MemberInfo-name-update-size {
+    margin: 0 20px;
+}
+.MemberInfo-name-update-title {
+    font-weight: 700;
+    color: #141414;
+    white-space: pre-wrap;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+
+.MemberInfo-name-update-con {
+    word-break: break-all;
+    margin: 8px 0;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 20px;
+}
+
+.MemberInfo-name-update-input {
+    border-radius: 4px;
+    margin-bottom: 24px;
+    border: 1px solid black;
+
+}
+
+.MemberInfo-update-btn-box {
+    border-top: 1px solid #e0e0e0;
+    flex-direction: row;
+    display: flex;
+}
+
+.MemberInfo-name-update-btn {
+    margin: 11px 0;
+    border: none;
+    border-right: 1px solid #e0e0e0;
+    background-color: #fff;
+    color: #ff2f6e;
+    flex: 1;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 22px;
+    cursor: pointer;
+}

@@ -1,0 +1,139 @@
+.WriteBox {
+    width: 640px;
+    border-radius: 20px;
+    min-height: 460px;
+    padding: 16px 20px 18px;
+    text-align: left;
+    vertical-align: middle;
+    height: auto;
+}
+.WriteBox-header {
+    border: 0;
+    height: 33px;
+    margin-bottom: 15px;
+    padding: 0;
+    position: relative;
+    font-weight: 700;
+    width: 100%;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+
+.WriteBox-movieName {
+    color: #292a32;
+    text-align: left;
+    bottom: 0;
+    margin: 0;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    right: 30px;
+    font-style: normal;
+}
+
+.WriteBox-close-box {
+    z-index: 2;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    right: 0px;
+}
+
+.WriteBox-close-btn {
+    color: #141414;
+    background-color: #eeeff3;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.WriteBox-con-box {
+    height: auto;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 20px;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.WriteBox-con {
+    height: 292px;
+    max-height: 700px;
+    resize: none;
+    border: 0;
+    outline: none;
+    width: 100%;
+    min-height: 360px;
+    margin: 1px 0 44px;
+    padding: 0;
+    overflow: auto;
+}
+.WriteBox-footer-box {
+    display: block;
+    background: #fff;
+    width: 100%;
+    height: 44px;
+    margin: 0 0 18px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.WriteBox-footer-size {
+    justify-content: end;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+    display: flex;
+}
+
+.WriteBox-save-box {
+    align-items: center;
+    height: 100%;
+    display: flex;
+}
+
+.WriteBox-con-counte {
+    text-align: right;
+    justify-content: center;
+    align-items: center;
+    min-height: 18px;
+    padding: 0;
+    display: flex;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 18px;
+}
+
+.WriteBox-save-btn {
+    color: #fff;
+    letter-spacing: -.3px;
+    background-color: #ff2f62;
+    border-radius: 7px;
+    height: 38px;
+    margin-left: 12px;
+    padding: 0 40px;
+    font-size: 15px;
+    line-height: 18px;
+    position: relative;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}

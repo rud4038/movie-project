@@ -1,0 +1,223 @@
+.dialog-boxs {
+    width: 375px;
+    height: auto;
+    text-align: left;
+    border-radius: 6px;
+}
+
+.dialog-box {
+    padding: 32px 0 16px;
+}
+
+.rogo {
+    color: black;
+    font-size: 28px;
+    text-align: center;
+    align-content: center;
+}
+
+.dialog-title {
+    margin: 24px 0 20px;
+    text-align: center;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0;
+}
+
+.dialog-contents-box {
+    width: 100%;
+    height: auto;
+}
+
+.dialog-contents {
+    margin: 0 20px;
+}
+
+.dialog-login-boxs {
+    width: 335px;
+    height: auto;
+}
+
+.dialog-input-box {
+    width: 100%;
+    height: 52px;
+    padding: 4px 0;
+}
+
+.dialog-input-detail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.dialog-input {
+    width: 100%;
+    padding: 0;
+    border: 0 ;
+    background-color: inherit;
+    outline: none;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0;
+}
+
+.dialog-clear-box {
+    display: inline-flex;
+    align-items: center;
+    width: 18px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.xmark-btn {
+    width: 15px;
+    height: 15px;
+    color: #a0a0a0;
+    cursor: pointer;
+}
+
+.waring-box {
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+    margin-left: 18px;
+}
+
+.waring-msg {
+    margin: 6px 12px 4px;
+    color: #d21e1e;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0;
+}
+
+.dialog-login-btn {
+    margin: 16px 0 0;
+    padding: 0 16px;
+    width: 100%;
+    height: 40px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #fff;
+    background-color: #ff2f6e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+}
+
+.dialog-login-btn:hover {
+    background-color: #ff417a;
+}
+
+.dialog-findPassword-box {
+    margin: 20px 0 14px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0;
+}
+
+.dialog-findPassword-btn {
+    color: #ff2f6e;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.dialog-singup-box {
+    color: #7e7e7e;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.dialog-singup-btn {
+    color: #ff2f6e;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.dialog-underline {
+    margin: 24px 0;
+    position: relative;
+    height: 1.5em;
+    color: #141414;
+    text-align: center;
+    border: 0;
+    outline: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0;
+}
+
+.dialog-underline::before{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    content: "";
+    border-top: 1px solid #e0e0e0;
+}
+
+.dialog-underline::after {
+    position: relative;
+    top: -2px;
+    display: inline-block;
+    padding: 0 14px;
+    color: #7e7e7e;
+    content: "OR";
+    background-color: #fff;
+    vertical-align: middle;
+}
+
+.dialog-openApi-list {
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog-openApi-box {
+    display: block;
+
+}
+
+.dialog-openApi-btn {
+    background-color: #f7e317;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    border: 0;
+    border-radius: 50%;
+}
+
+.dialog-openApi-img {
+    width: auto;
+    height: 60%;
+    overflow-clip-margin: contetn-box;
+    overflow: clip;
+}
